@@ -1,0 +1,18 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Condition</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |book|}}
+      <tr>
+        <th>{{#link-to 'books.edit' book}}{{book.title}}{{/link-to}}</th>
+        <td>{{book.condition}}</td>
+        <td>{{if book.isAvailable 'Available' 'Not Available' }}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

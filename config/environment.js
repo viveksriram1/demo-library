@@ -6,6 +6,16 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyBKge1Ude6UvhwSr5aDpL1DrGhSlMYeRQg",
+      authDomain: "kiprosh-salary.firebaseapp.com",
+      databaseURL: "https://kiprosh-salary.firebaseio.com",
+      projectId: "kiprosh-salary",
+      storageBucket: "kiprosh-salary.appspot.com",
+      messagingSenderId: "220740231662"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -24,11 +34,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
