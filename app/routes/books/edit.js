@@ -8,15 +8,8 @@ export default Ember.Route.extend({
 
   actions: {
     saveBook(newBook) {
+      newBook.set('isAvailable',  $('select').val());
       newBook.save().then(() => this.transitionTo('books'));
-    },
-
-    deleteBook(book) {
-      let confirmation = confirm('Are you sure want to delete this book ?');
-
-      if (confirmation) {
-        book.destroyRecord().then(() => this.transitionTo('books'));
-      }
     },
 
     willTransition(transition) {

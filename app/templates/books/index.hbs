@@ -1,5 +1,6 @@
 {{#each model as |book|}}
   <div class="col-md-4">
     <div>{{#link-to 'books.show' book}}<img class="image" src="{{book.image}}" alt=""><h4>{{book.title}}</h4>{{/link-to}}</div>
+    <h4> Status: {{if book.isAvailable 'Available' 'Not Available'}}</h4>
   </div>
 {{/each}}

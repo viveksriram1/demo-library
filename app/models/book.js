@@ -5,5 +5,6 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   condition: DS.attr('string'),
   isAvailable: DS.attr('boolean'),
+  issueDate: DS.attr('date'),
   person: DS.belongsTo('person'),
 });

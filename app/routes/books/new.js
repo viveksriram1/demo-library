@@ -8,6 +8,8 @@ export default Ember.Route.extend({
   actions: {
 
     saveBook(newBook) {
+      debugger;
+      newBook.set('isAvailable',  $('select').val());
       newBook.save().then(() => this.transitionTo('books'));
     },
 

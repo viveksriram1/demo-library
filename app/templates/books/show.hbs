@@ -7,6 +7,10 @@
         <div class="panel-body">
           <img class="image" src="{{model.image}}" alt="">
         </div>
+        <div class="panel-body">
+          {{#link-to 'books.edit' model class="btn btn-success"}}Edit this Book{{/link-to}}
+          {{delete-book model=model}}
+        </div>
     </div>
   </div>
 </div>
