@@ -16,7 +16,11 @@ Router.map(function() {
 
   this.route('people', function() {
     this.route('new');
-    this.route('edit');
+    this.route('edit', {path: '/:person_id/edit'});
+  });
+  this.route('issue', function() {
+    this.route('add',{path: '/:book_id/add'});
+    this.route('remove',{path: '/:book_id/remove'});
   });
 });
 

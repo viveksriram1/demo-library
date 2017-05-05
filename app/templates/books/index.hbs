@@ -1,6 +1,27 @@
 {{#each model as |book|}}
   <div class="col-md-4">
-    <div>{{#link-to 'books.show' book}}<img class="image" src="{{book.image}}" alt=""><h4>{{book.title}}</h4>{{/link-to}}</div>
-    <h4> Status: {{if book.isAvailable 'Available' 'Not Available'}}</h4>
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{book.title}}{{/text.headline}}
+          {{#text.subhead}}{{if book.isAvailable 'Available' 'Not Available'}}{{/text.subhead}}
+        {{/title.text}}
+        {{title.media size="lg" src=book.image alt="Tomster" title="Tomster"}}
+      {{/card.title}}
+      {{#card.actions}}
+        {{#paper-button warn=true onClick=(transition-to 'books.edit' book) }}Edit{{/paper-button}}
+        {{#paper-button primary=true onClick=(transition-to 'issue.add' book) }}Issue{{/paper-button}}
+      {{/card.actions}}
+    {{/paper-card}}
   </div>
 {{/each}}
+<div class="col-md-4">
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      {{#title.text as |text|}}
+        {{#text.headline}}Add new book{{/text.headline}}
+      {{/title.text}}
+      {{#paper-button iconButton=true raised=true onClick=(transition-to 'books.new')}}{{paper-icon "add"}}{{/paper-button}}
+    {{/card.title}}
+  {{/paper-card}}
+</div>

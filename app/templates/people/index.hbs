@@ -1,0 +1,30 @@
+<div class="col-md-4">
+  {{#paper-card as |card|}}
+    {{#card.title as |title|}}
+      {{#title.text as |text|}}
+        {{#text.headline}}Add new person{{/text.headline}}
+      {{/title.text}}
+      {{#paper-button iconButton=true raised=true onClick=(transition-to 'people.new')}}{{paper-icon "add"}}{{/paper-button}}
+    {{/card.title}}
+  {{/paper-card}}
+</div>
+{{#each model as |person|}}
+  <div class="col-md-4">
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{person.name}}{{/text.headline}}
+          {{#text.subhead}}{{person.email}}{{/text.subhead}}
+          {{#text.subhead}}{{person.phone}}{{/text.subhead}}
+        {{/title.text}}
+      {{/card.title}}
+      {{#card.actions}}
+        {{#paper-button raised=true onClick=(transition-to 'people.edit' person) }}Edit{{/paper-button}}
+        {{delete-book model=person}}
+      {{/card.actions}}
+    {{/paper-card}}
+
+    {{!-- <div>{{#link-to 'books.show' book}}<img class="image" src="{{book.image}}" alt=""><h4>{{book.title}}</h4>{{/link-to}}</div>
+    <h4> Status: {{if book.isAvailable 'Available' 'Not Available'}}</h4> --}}
+  </div>
+{{/each}}

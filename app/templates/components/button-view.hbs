@@ -1,1 +1,1 @@
-<button class="btn btn-success" {{action 'changeView'}}>{{if isThumb 'List' 'Grid'}}</button>
+{{#paper-button raised= true onClick=(action "changeView" model)}}{{if isThumb 'List' 'Grid'}}{{/paper-button}}

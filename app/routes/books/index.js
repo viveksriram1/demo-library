@@ -6,6 +6,13 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    addBookPerson() {
+
+    },
+
+    searchPeople() {
+      return this.store.findAll('person');
+    }
 
   }
 });
