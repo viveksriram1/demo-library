@@ -5,8 +5,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   phone: DS.attr('string'),
   email: DS.attr('string'),
-  book_id: DS.attr('number'),
-  book: DS.belongsTo('book'),
+  book: DS.belongsTo('book',{ async: true }),
 
   isValid: Ember.computed.notEmpty('name'),
 });

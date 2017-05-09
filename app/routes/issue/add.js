@@ -8,11 +8,22 @@ export default Ember.Route.extend({
     });
   },
 
+  /*showDialog() {
+    this.get("dialog").alert("error-message");
+  },*/
+
   actions: {
     addBookPerson() {
-
+      model.set('person_name', selected);
     },
-    addPersonToBook(book,person) {
+    addPersonToBook(model) {
+      var person_name = $('md-autocomplete input').val();
+      this.store.query('person', { orderBy: 'name', equalTo: person_name }).then(function(user){
+        model.book.set('person', user);
+        model.book.set('person_name', person_name);
+        model.book.set('isAvailable', false);
+        model.book.save();
+      });
       this.transitionTo('books');
     }
   }

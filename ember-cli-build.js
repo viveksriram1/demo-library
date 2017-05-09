@@ -3,7 +3,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    sassOptions: {
+      includePaths: [ 'node_modules/ember-dialog/addon/styles' ]
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

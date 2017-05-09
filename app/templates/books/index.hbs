@@ -5,12 +5,19 @@
         {{#title.text as |text|}}
           {{#text.headline}}{{book.title}}{{/text.headline}}
           {{#text.subhead}}{{if book.isAvailable 'Available' 'Not Available'}}{{/text.subhead}}
+          {{#if book.person_name}}
+            {{book.person_name}} took this book.
+          {{/if}}
         {{/title.text}}
         {{title.media size="lg" src=book.image alt="Tomster" title="Tomster"}}
       {{/card.title}}
       {{#card.actions}}
-        {{#paper-button warn=true onClick=(transition-to 'books.edit' book) }}Edit{{/paper-button}}
-        {{#paper-button primary=true onClick=(transition-to 'issue.add' book.id) }}Issue{{/paper-button}}
+        {{#paper-button onClick=(transition-to 'books.edit' book) }}Edit{{/paper-button}}
+        {{#if book.isAvailable}}
+          {{#paper-button primary=true onClick=(transition-to 'issue.add' book.id) }}Issue{{/paper-button}}
+        {{else}}
+          {{#paper-button warn=true onClick=(route-action 'collectBook' book) }}Collect{{/paper-button}}
+        {{/if}}
       {{/card.actions}}
     {{/paper-card}}
   </div>

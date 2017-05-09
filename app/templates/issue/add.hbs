@@ -19,7 +19,7 @@
     <div class="col-md-4">
       {{#paper-autocomplete
         disabled=firstDisabled
-        onCreate=(route-action "addBookPerson")
+        onSelect=(route-action "addBookPerson")
         options=model.people
         allowClear=true
         searchText=(readonly countrySearchText)
@@ -41,7 +41,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-    {{#paper-button primary= true onClick=(route-action 'addPersonToBook' model) raised= true}}Issue this book to this person{{/paper-button}}
+    {{#paper-button onClick=(route-action 'addPersonToBook' model) raised= true}}Issue this book to this person{{/paper-button}}
     </div>
   </div>
 </div>

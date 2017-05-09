@@ -6,5 +6,6 @@ export default DS.Model.extend({
   condition: DS.attr('string'),
   isAvailable: DS.attr('boolean'),
   issueDate: DS.attr('date'),
-  person: DS.belongsTo('person'),
+  person_name: DS.attr('string'),
+  person: DS.belongsTo('person',{ async: true }),
 });
