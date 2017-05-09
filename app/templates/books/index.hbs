@@ -10,7 +10,7 @@
       {{/card.title}}
       {{#card.actions}}
         {{#paper-button warn=true onClick=(transition-to 'books.edit' book) }}Edit{{/paper-button}}
-        {{#paper-button primary=true onClick=(transition-to 'issue.add' book) }}Issue{{/paper-button}}
+        {{#paper-button primary=true onClick=(transition-to 'issue.add' book.id) }}Issue{{/paper-button}}
       {{/card.actions}}
     {{/paper-card}}
   </div>

@@ -7,13 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
+      {{#link-to 'index' class="navbar-brand"}}Kiprosh Library{{/link-to}}
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
         {{#link-to 'books' tagName="li"}}<a href="">All Books</a>{{/link-to}}
+        {{#link-to 'books.new' tagName="li"}}<a href="">Create Book</a>{{/link-to}}
         {{#link-to 'people' tagName="li"}}<a href="">Users</a>{{/link-to}}
+        {{#link-to 'people.new' tagName="li"}}<a href="">Create User</a>{{/link-to}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
